@@ -1,4 +1,7 @@
+
 const PORT = process.env.PORT || 8001;
+console.log("PORT:", PORT);
+
 const ENV = require("./environment");
 
 const app = require("./application")(ENV);
