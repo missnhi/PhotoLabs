@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import './App.scss';
 import HomeRoute from "./routes/HomeRoute.jsx";
-import photos from './mocks/photos';
 import topics from './mocks/topics';
 import FavouriteProvider, { FavouriteContext } from './contexts/FavouriteContext';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal.jsx";
