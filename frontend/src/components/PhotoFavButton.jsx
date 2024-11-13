@@ -2,7 +2,7 @@ import React from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import useWow from '../mocks/useWowHook';
+import useWow from '../hooks/useWowHook.js';
 
 function PhotoFavButton({ isFavourite, onClick }) {
   const {sayWow} = useWow();

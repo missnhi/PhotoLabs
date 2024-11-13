@@ -17,7 +17,9 @@ const PhotoListItem = ({ photo, openModal }) => {
     <div className="photo-list__item" >
       {/*Adding a Favourite Button*/}
       <PhotoFavButton isFavourite={isFavourite} onClick={handleFavouriteClick} />
-      <img className="photo-list__image" onClick={openModal} src={urls.full} alt={`${user.username}'s photo`}/>
+      <img className="photo-list__image"
+           onClick={() => openModal(photo.id)}
+           src={urls.full} alt={`${user.username}'s photo`}/>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt={`${user.username}'s profile`}/>
         <div className="photo-list__user-info">
