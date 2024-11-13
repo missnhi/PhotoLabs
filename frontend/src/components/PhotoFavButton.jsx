@@ -1,13 +1,18 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
+import useWow from '../mocks/useWowHook';
 
 function PhotoFavButton() {
   const [isActive, setIsActive] = useState(false);
+  const {sayWow} = useWow();
   
   const handleClick = () => {
     setIsActive(!isActive);
+    if (!isActive) {
+      sayWow();
+    }
   };
   
   // The isActive state is toggled when the button is clicked.
