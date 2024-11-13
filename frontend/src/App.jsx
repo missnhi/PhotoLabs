@@ -28,6 +28,8 @@ const App = () => {
   return (
     <FavouriteProvider>
       <FavouriteContext.Consumer>
+        {/*Pass favPhotos List and the toggle Favourite function to all the children
+        so that they can use it across all state, globally*/}
         {({ favPhotos, toggleFavourite }) => (
           <div className="App">
             {/*Home Route will take the openModal function and the PhotoDetail need the closeModal*/}

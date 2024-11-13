@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem.jsx";
-import { FavouriteContext } from "../contexts/FavouriteContext.jsx";
 
 
-const PhotoList = ({photosList, openModal}) => {
-  const { favPhotos, toggleFavourite } = useContext(FavouriteContext);
+const PhotoList = ({photosList, openModal, favPhotos, toggleFavourite}) => {
   
   return (
     <ul className="photo-list">
@@ -14,7 +12,7 @@ const PhotoList = ({photosList, openModal}) => {
           key={photo.id}
           photo={photo}
           toggleFavourite={toggleFavourite}
-          favourites={favPhotos}
+          favPhotos={favPhotos}
           openModal={openModal}
         />
       ))}

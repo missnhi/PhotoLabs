@@ -15,11 +15,15 @@ const PhotoDetailsModal = ({photo, closeModal, favPhotos, toggleFavourite}) => {
         className="photo-details-modal__image"
         photo={photo}
         openModal={() => {}}
+        favPhotos={favPhotos}
+        toggleFavourite={toggleFavourite}
       />
       <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList
         photosList={Object.values(photo.similar_photos)}
         openModal={() => {}}
+        favPhotos={favPhotos}
+        toggleFavourite={toggleFavourite}
       />
     </div>
   )

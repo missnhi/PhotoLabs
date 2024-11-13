@@ -1,17 +1,15 @@
 import React, {useContext} from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton.jsx";
-import { FavouriteContext } from "../contexts/FavouriteContext.jsx";
 
-const PhotoListItem = ({ photo, openModal }) => {
+const PhotoListItem = ({ photo, openModal, favPhotos, toggleFavourite }) => {
   const { location, urls, user } = photo;
-  const { favPhotos, toggleFavourite } = useContext(FavouriteContext);
   
+  // check if the current photo is a favourite.
   const isFavourite = favPhotos.some((favPhoto) => favPhoto && favPhoto.id === photo.id);
   
   // allow users to mark photos as favourites.
   const handleFavouriteClick = () => toggleFavourite(photo);
-
   
   return (
     <div className="photo-list__item" >

@@ -3,6 +3,12 @@ import '../styles/HomeRoute.scss';
 import TopNavigationBar from "../components/TopNavigationBar.jsx";
 import PhotoList from "../components/PhotoList.jsx";
 
+/*
+HomeRoute.jsx,received the favPhotos and toggleFavourite as props ' +
+'and passed them down to the PhotoList component.
+=> good practice as it allows the PhotoList component to use these
+props without having to manage its own state.
+*/
 const HomeRoute = ({ photos, topics, openModal, favPhotos, toggleFavourite }) => {
   return (
     <div className="home-route">
