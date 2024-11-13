@@ -2,16 +2,11 @@ import React from "react";
 
 import "../styles/TopicListItem.scss";
 
-const topic = {
-  id: "1",
-  slug: "topic-1",
-  label: "Nature",
-};
 
-const TopicListItem = () => {
+const TopicListItem = (props) => {
   return (
-    <div key={topic.id} className="topic-list__item" >
-      {topic.label}
+    <div className="topic-list__item" >
+      {props.title}
     </div>
   );
 };
