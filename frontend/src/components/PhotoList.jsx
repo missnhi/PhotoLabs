@@ -3,7 +3,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem.jsx";
 import useToggleFavourite from "../hooks/useToggleFavourite.js";
 
-const PhotoList = ({photosList}) => {
+const PhotoList = ({photosList, openModal}) => {
   const { favPhotos, toggleFavourite} = useToggleFavourite();
   
   return (
@@ -14,6 +14,7 @@ const PhotoList = ({photosList}) => {
           photo={photo}
           toggleFavourite={toggleFavourite}
           favourites={favPhotos}
+          openModal={openModal}
         />
       ))}
     </ul>

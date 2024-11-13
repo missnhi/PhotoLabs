@@ -1,10 +1,9 @@
 import React, {useContext} from "react";
-
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton.jsx";
 import { FavouriteContext } from "../contexts/FavouriteContext.jsx";
 
-const PhotoListItem = ({ photo }) => {
+const PhotoListItem = ({ photo, openModal }) => {
   const { location, urls, user } = photo;
   const { favPhotos, addFavourite, removeFavourite } = useContext(FavouriteContext);
   
@@ -15,10 +14,10 @@ const PhotoListItem = ({ photo }) => {
 
   
   return (
-    <div className="photo-list__item">
+    <div className="photo-list__item" >
       {/*Adding a Favourite Button*/}
       <PhotoFavButton isFavourite={isFavourite} onClick={handleFavouriteClick} />
-      <img className="photo-list__image" src={urls.full} alt={`${user.username}'s photo`}/>
+      <img className="photo-list__image" onClick={openModal} src={urls.full} alt={`${user.username}'s photo`}/>
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={user.profile} alt={`${user.username}'s profile`}/>
         <div className="photo-list__user-info">
