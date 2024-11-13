@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { FavouriteContext } from '../contexts/FavouriteContext';
 import FavIcon from './FavIcon';
-
 import '../styles/FavBadge.scss';
 
-const FavBadge = ({ isFavPhotoExist }) => {
+const FavBadge = ( ) => {
+  const {favPhotos} = useContext(FavouriteContext);
+  const isFavPhotoExist = favPhotos.length > 0;
+  
   return (
     <div className='fav-badge'>
       <FavIcon displayAlert={!!isFavPhotoExist}/>
