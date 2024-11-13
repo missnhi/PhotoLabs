@@ -5,25 +5,16 @@ import photos from './mocks/photos';
 import topics from './mocks/topics';
 import FavouriteProvider, { FavouriteContext } from './contexts/FavouriteContext';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal.jsx";
+import useApplicationData from "./hooks/useApplicationData.js";
 
 
 const App = () => {
   
-  const [isModelOpen, setIsModelOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  
-  // Function to open + close the PhotoDetailsModal with useState
-  // + set the selected photo by ID
-  const openModal = (photoID) => {
-    setIsModelOpen(true);
-    const photo = photos.find((photo) => photo.id === photoID);
-    setSelectedPhoto(photo);
-  };
-  
-  const closeModal = () => {
-    setIsModelOpen(false);
-    setSelectedPhoto(null);
-  };
+  const {
+    state,
+    openModal,
+    closeModal,
+  } = useApplicationData();
   
   return (
     <FavouriteProvider>
@@ -34,15 +25,15 @@ const App = () => {
           <div className="App">
             {/*Home Route will take the openModal function and the PhotoDetail need the closeModal*/}
             <HomeRoute
-              photos={photos}
+              photos={state.photos}
               topics={topics}
               openModal={openModal}
               favPhotos={favPhotos}
               toggleFavourite={toggleFavourite}
             />
-            { isModelOpen && (
+            { state.isModelOpen && (
               <PhotoDetailsModal
-                photo={selectedPhoto}
+                photo={state.selectedPhoto}
                 closeModal={closeModal}
                 favPhotos={favPhotos}
                 toggleFavourite={toggleFavourite}

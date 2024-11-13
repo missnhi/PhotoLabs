@@ -21,7 +21,6 @@ const PhotoDetailsModal = ({photo, closeModal, favPhotos, toggleFavourite}) => {
       <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList
         photosList={Object.values(photo.similar_photos)}
-        openModal={() => {}}
         favPhotos={favPhotos}
         toggleFavourite={toggleFavourite}
       />
