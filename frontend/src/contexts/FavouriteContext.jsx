@@ -4,18 +4,18 @@ export const FavouriteContext = createContext();
 export default function FavouriteProvider ({children}) {
   const [favPhotos, setFavPhotos] = useState([]);
   
-  const addFavourite = (photo) => {
-    // console.log("In FavouriteProvider.jsx, addFavourite, photo ", photo);
-    setFavPhotos([...favPhotos, photo]);
-  }
-  
-  const removeFavourite = (photo) => {
-    // console.log("In FavouriteProvider.jsx, removeFavourite, photo: ", photo);
-    setFavPhotos(favPhotos.filter((favPhoto) => favPhoto.id !== photo.id));
-  }
+  const toggleFavourite = (photo) => {
+    setFavPhotos((prevFavPhotos) => {
+      if (prevFavPhotos.some((favPhoto) => favPhoto.id === photo.id)) {
+        return prevFavPhotos.filter((favPhoto) => favPhoto.id !== photo.id);
+      } else {
+        return [...prevFavPhotos, photo];
+      }
+    });
+  };
   
   return (
-    <FavouriteContext.Provider value={{favPhotos, addFavourite, removeFavourite}}>
+    <FavouriteContext.Provider value={{ favPhotos,toggleFavourite }}>
       {children}
     </FavouriteContext.Provider>
   )

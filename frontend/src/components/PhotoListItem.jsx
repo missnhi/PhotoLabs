@@ -5,12 +5,12 @@ import { FavouriteContext } from "../contexts/FavouriteContext.jsx";
 
 const PhotoListItem = ({ photo, openModal }) => {
   const { location, urls, user } = photo;
-  const { favPhotos, addFavourite, removeFavourite } = useContext(FavouriteContext);
+  const { favPhotos, toggleFavourite } = useContext(FavouriteContext);
   
   const isFavourite = favPhotos.some((favPhoto) => favPhoto && favPhoto.id === photo.id);
   
   // allow users to mark photos as favourites.
-  const handleFavouriteClick = () => isFavourite ?  removeFavourite(photo) : addFavourite(photo);
+  const handleFavouriteClick = () => toggleFavourite(photo);
 
   
   return (

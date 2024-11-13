@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import './App.scss';
 import HomeRoute from "./routes/HomeRoute.jsx";
 import photos from './mocks/photos';
 import topics from './mocks/topics';
-import FavouriteProvider from './contexts/FavouriteContext';
+import FavouriteProvider, { FavouriteContext } from './contexts/FavouriteContext';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal.jsx";
 
 
 const App = () => {
   
-  const [isModelOpen, setIsModelOpen] = React.useState(false);
-  const [selectedPhoto, setSelectedPhoto] = React.useState(null);
+  const [isModelOpen, setIsModelOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   
   // Function to open + close the PhotoDetailsModal with useState
   // + set the selected photo by ID
@@ -27,11 +27,28 @@ const App = () => {
   
   return (
     <FavouriteProvider>
-      <div className="App">
-        {/*Home Route will take the openModal function and the PhotoDetail need the closeModal*/}
-        <HomeRoute photos={photos} topics={topics} openModal={openModal}/>
-        { isModelOpen && <PhotoDetailsModal photo={selectedPhoto} closeModal={closeModal} /> }
-      </div>
+      <FavouriteContext.Consumer>
+        {({ favPhotos, toggleFavourite }) => (
+          <div className="App">
+            {/*Home Route will take the openModal function and the PhotoDetail need the closeModal*/}
+            <HomeRoute
+              photos={photos}
+              topics={topics}
+              openModal={openModal}
+              favPhotos={favPhotos}
+              toggleFavourite={toggleFavourite}
+            />
+            { isModelOpen && (
+              <PhotoDetailsModal
+                photo={selectedPhoto}
+                closeModal={closeModal}
+                favPhotos={favPhotos}
+                toggleFavourite={toggleFavourite}
+              />
+            )}
+          </div>
+        )}
+      </FavouriteContext.Consumer>
     </FavouriteProvider>
   );
 };

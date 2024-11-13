@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem.jsx";
-import useToggleFavourite from "../hooks/useToggleFavourite.js";
+import { FavouriteContext } from "../contexts/FavouriteContext.jsx";
+
 
 const PhotoList = ({photosList, openModal}) => {
-  const { favPhotos, toggleFavourite} = useToggleFavourite();
+  const { favPhotos, toggleFavourite } = useContext(FavouriteContext);
   
   return (
     <ul className="photo-list">
