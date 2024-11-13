@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 import useWow from '../mocks/useWowHook';
 
-function PhotoFavButton() {
-  const [isActive, setIsActive] = useState(false);
+function PhotoFavButton({ isFavourite, onClick }) {
   const {sayWow} = useWow();
   
   const handleClick = () => {
-    setIsActive(!isActive);
-    if (!isActive) {
+    onClick();
+    if (!isFavourite) {
       sayWow();
     }
   };
@@ -22,7 +21,7 @@ function PhotoFavButton() {
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isActive}/>
+        <FavIcon selected={isFavourite}/>
       </div>
     </div>
     

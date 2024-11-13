@@ -8,10 +8,10 @@ const PhotoListItem = ({ photo }) => {
   const { location, urls, user } = photo;
   const { favPhotos, addFavourite, removeFavourite } = useContext(FavouriteContext);
   
-  const isFavourite = favPhotos.some((favPhoto) => favPhoto.id === photo.id);
+  const isFavourite = favPhotos.some((favPhoto) => favPhoto && favPhoto.id === photo.id);
   
   // allow users to mark photos as favourites.
-  const handleFavouriteClick = () => isFavourite ?  addFavourite(photo) : removeFavourite(photo);
+  const handleFavouriteClick = () => isFavourite ?  removeFavourite(photo) : addFavourite(photo);
 
   
   return (
