@@ -17,7 +17,7 @@ npm run dev
 ## [Backend] Running Backend Servier
 
 Read `backend/readme` for further setup details.
-
+The data layer consists of PostgreSQL database
 ```sh
 cd backend
 npm start
