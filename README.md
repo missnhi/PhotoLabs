@@ -12,7 +12,7 @@ Install dependencies with `npm install` in each respective `/frontend` and `/bac
 
 ```sh
 cd frontend
-npm start
+npm run dev 
 ```
 
 ## [Backend] Running Backend Servier
