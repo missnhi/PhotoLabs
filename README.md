@@ -29,5 +29,5 @@ npm start
 !["Notification of Favourites"](https://github.com/missnhi/PhotoLabs/blob/main/docs/likes-notif.png)
 
 ## Helpful resources
-1. OWEN WILSON WOW [API] (https://owen-wilson-wow-api.onrender.com/)
-2. How to measure performance bottlenecks [here] (https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#profiling-an-application)
+1. OWEN WILSON WOW [API](https://owen-wilson-wow-api.onrender.com/)
+2. How to measure performance bottlenecks [here](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#profiling-an-application)
