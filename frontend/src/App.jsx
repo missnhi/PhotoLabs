@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
 import HomeRoute from "./routes/HomeRoute.jsx";
-import topics from './mocks/topics';
 import FavouriteProvider, { FavouriteContext } from './contexts/FavouriteContext';
 import PhotoDetailsModal from "./routes/PhotoDetailsModal.jsx";
 import useApplicationData from "./hooks/useApplicationData.js";
@@ -25,7 +24,7 @@ const App = () => {
             {/*Home Route will take the openModal function and the PhotoDetail need the closeModal*/}
             <HomeRoute
               photos={state.photos}
-              topics={topics}
+              topics={state.topics}
               openModal={openModal}
               favPhotos={favPhotos}
               toggleFavourite={toggleFavourite}
