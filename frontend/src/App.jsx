@@ -12,6 +12,7 @@ const App = () => {
     state,
     openModal,
     closeModal,
+    fetchPhotosByTopic
   } = useApplicationData();
   
   return (
@@ -28,6 +29,7 @@ const App = () => {
               openModal={openModal}
               favPhotos={favPhotos}
               toggleFavourite={toggleFavourite}
+              fetchPhotosByTopic={fetchPhotosByTopic}
             />
             { state.isModelOpen && (
               <PhotoDetailsModal

@@ -5,6 +5,7 @@ export const ACTIONS = {
   SET_TOPICS: 'SET_TOPICS', // Set the topics that is currently being displayed
   OPEN_MODAL: 'OPEN_MODAL', // Open the modal based on the selected photo
   CLOSE_MODAL: 'CLOSE_MODAL',
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC', // Set the photos based on the selected topic
 }
 
 function reducer(state, action) {
@@ -18,6 +19,8 @@ function reducer(state, action) {
       return {...state, isModelOpen: true, selectedPhoto: selectedPhoto};
     case ACTIONS.CLOSE_MODAL:
       return {...state, isModelOpen: false, selectedPhoto: null};
+    case ACTIONS.SET_PHOTOS_BY_TOPIC:
+      return {...state, photos: action.payload};
     default:
       throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
     }
@@ -37,14 +40,12 @@ const useApplicationData = () => {
   useEffect(() => {
     axios.get("/api/photos")
       .then((res) => {
-        console.log("Photos API: ",res.data);
         dispatch({ type: ACTIONS.SET_PHOTOS, payload: res.data });
       })
       .catch((err) => console.log(err));
     
     axios.get("/api/topics")
       .then((res) => {
-        console.log("Topics API: ",res.data);
         dispatch({ type: ACTIONS.SET_TOPICS, payload: res.data });
       })
       .catch((err) => console.log(err));
@@ -60,12 +61,23 @@ const useApplicationData = () => {
   const closeModal = () => {
     dispatch({ type: ACTIONS.CLOSE_MODAL });
   };
+  
+  // New function to fetch photos by topic ex: NAture, People, Travel, Animals, Fashion
+  const fetchPhotosByTopic = (topicID) => {
+    axios.get(`api/topics/photos/${topicID}`)
+      .then((res) => {
+        dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+  
 
   // Return the state and actions
   return {
     state,
     openModal,
     closeModal,
+    fetchPhotosByTopic,
   };
 };
 

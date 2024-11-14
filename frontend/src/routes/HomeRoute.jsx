@@ -9,10 +9,14 @@ HomeRoute.jsx,received the favPhotos and toggleFavourite as props ' +
 => good practice as it allows the PhotoList component to use these
 props without having to manage its own state.
 */
-const HomeRoute = ({ photos, topics, openModal, favPhotos, toggleFavourite }) => {
+const HomeRoute = ({ photos, topics, openModal, favPhotos, toggleFavourite, fetchPhotosByTopic }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} isFavPhotoExist={favPhotos.length > 0}/>
+      <TopNavigationBar
+        topics={topics}
+        isFavPhotoExist={favPhotos.length > 0}
+        fetchPhotosByTopic={fetchPhotosByTopic}
+      />
       <PhotoList
         photosList={photos}
         toggleFavourite={toggleFavourite}
