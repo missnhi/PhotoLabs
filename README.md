@@ -1,7 +1,8 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+The PhotoLabs project with Vite+React frontend and Express backend.
 
 # Photolabs
+* Feature the random Owen Wilson WOW API whenever user favourites a photo. 
 
 ## Setup
 
