@@ -23,3 +23,12 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Final Product
+
+!["Animals Filter"](https://github.com/missnhi/PhotoLabs/blob/main/docs/animals.png)
+!["Notification of Favourites"](https://github.com/missnhi/PhotoLabs/blob/main/docs/likes-notif.png)
+
+## Helpful resources
+1. https://owen-wilson-wow-api.onrender.com/
+2. https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#profiling-an-application
