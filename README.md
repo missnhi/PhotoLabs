@@ -31,3 +31,5 @@ npm start
 ## Helpful resources
 1. OWEN WILSON WOW [API](https://owen-wilson-wow-api.onrender.com/)
 2. How to measure performance bottlenecks [here](https://legacy.reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html#profiling-an-application)
+3. [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
+4. [Making Sense of React Hooks](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889)
